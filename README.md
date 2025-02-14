@@ -1,23 +1,39 @@
-1. Executive Summary (1 Page)
-Objective
-Enhance bankruptcy prediction by integrating ESG metrics with financial data using XGBoost, addressing gaps in traditional models.
+# Bankruptcy Prediction with ESG Integration
 
-Methodology
+## Executive Summary
+### Objective
+This project enhances bankruptcy prediction by integrating **Environmental, Social, and Governance (ESG) metrics** with financial data using **XGBoost**, addressing limitations in traditional financial models.
 
-Data: S&P 500 financial ratios (liquidity, leverage) and ESG scores (governance, controversies).
+### Methodology
+- **Data**: S&P 500 financial ratios (e.g., liquidity, leverage) combined with ESG scores (governance, controversies).
+- **Techniques**:
+  - Feature engineering (e.g., ESG Profitability, Controversy_Leverage)
+  - **SMOTE** for handling class imbalance
+  - **Threshold tuning** to optimize predictions
+- **Evaluation**:
+  - Prioritization of **F1-score** due to imbalanced class distribution
 
-Techniques: Feature engineering (ESG Profitability, Controversy_Leverage), SMOTE for imbalance, threshold tuning.
+### Key Findings
+- **ESG data improved Low Risk detection**, increasing F1-score from **0.85 (financial-only model) to 0.89**.
+- **Moderate Risk detection remains challenging**, with an F1-score of **0.30**.
+- **ESG factors flagged risks 6–12 months earlier**, providing an early warning system.
 
-Evaluation: F1-score prioritized for imbalanced classes.
+### Recommendation
+- **Adopt hybrid models** that integrate both financial and ESG data.
+- **Advocate for ESG data standardization** to improve predictive accuracy and comparability.
 
-Key Findings
+## Installation & Requirements
+Ensure you have Python installed along with the required dependencies:
+```sh
+pip install xgboost pandas numpy imbalanced-learn
+```
 
-ESG improved Low Risk detection (F1: 0.89 vs. 0.85 in financial-only model).
+## Usage
+Run the script to train and evaluate the bankruptcy prediction model:
+```sh
+python bankruptcy_prediction.py
+```
 
-Moderate Risk remained challenging (F1: 0.30).
-
-ESG flagged risks 6–12 months earlier.
-
-Recommendation
-Adopt hybrid models and advocate for ESG data standardization.
+## License
+This project is open-source under the MIT License.
 
